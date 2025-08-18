@@ -9,7 +9,7 @@ public class OrderTests
 {
     private readonly Customer _customer = new Customer("Caio Nery", "caionery@.com");
     private readonly Product _product = new Product("Teste1", 10, true);
-    private readonly Discount _discount = new Discount(8, DateTime.Now.AddDays(5));
+    private readonly Discount _discount = new Discount(10, DateTime.Now.AddDays(5));
 
 
     [TestMethod]
@@ -44,20 +44,83 @@ public class OrderTests
     public void DadoUmPedidoCanceladoSeuStatusDeveSerCancelado()
     {
         var order = new Order(_customer, 0, _discount);
-        Assert.AreEqual(EOrderStatus.Canceled, EOrderStatus.Canceled);
+        order.Cancel();
+        Assert.AreEqual(order.Status, EOrderStatus.Canceled);
     }
 
     [TestMethod]
     [TestCategory("Domain")]
     public void DadoUmNovoItemSemProdutoOMesmoNaoDeveSerAdicionado()
     {
-        Assert.Fail();
+        var order = new Order(_customer, 0, _discount);
+        order.AddItem(null, 10);
+        Assert.AreEqual(order.Items.Count, 0);
     }
 
     [TestMethod]
     [TestCategory("Domain")]
     public void DadoUmNovoItemComQuantidadeZeroOuMenorMesmoNaoDeveSerAdicionado()
     {
-        Assert.Fail();
+        var order = new Order(_customer, 0, _discount);
+        order.AddItem(_product, 0);
+        Assert.AreEqual(order.Items.Count, 0);
     }
+
+    [TestMethod]
+    [TestCategory("Domain")]
+    public void DadoUmNovoPedidoOTotalDeveSer50()
+    {
+        var order = new Order(_customer, 10, _discount);
+        order.AddItem(_product, 5);
+        Assert.AreEqual(order.Total(), 50);
+    }
+
+    [TestMethod]
+    [TestCategory("Domain")]
+    public void DadoDescontoExpiradoOTotalDeveSer60()
+    {
+        var expirateDiscount = new Discount(10, DateTime.Now.AddDays(-5));
+        var order = new Order(_customer, 10, expirateDiscount);
+        order.AddItem(_product, 5);
+        Assert.AreEqual(order.Total(), 60);
+    }
+
+    [TestMethod]
+    [TestCategory("Domain")]
+    public void DadoDescontoInvalidoOTotalDeveSer60()
+    {
+        var order = new Order(_customer, 10, null);
+        order.AddItem(_product, 5);
+        Assert.AreEqual(order.Total(), 60);
+    }
+
+    [TestMethod]
+    [TestCategory("Domain")]
+    public void DadoDescontoDe10OTotalDeveSer50()
+    {
+        var order = new Order(_customer, 10, _discount);
+        order.AddItem(_product, 5);
+        Assert.AreEqual(order.Total(), 50);
+    }
+
+    [TestMethod]
+    [TestCategory("Domain")]
+    public void DadoUmaTaxaDeEntragaDe10oTotalDeveSer60()
+    {
+        var order = new Order(_customer, 10, _discount);
+        order.AddItem(_product, 6);
+        Assert.AreEqual(order.Total(), 60);
+    }
+
+    [TestMethod]
+    [TestCategory("Domain")]
+    public void DadoUmPedidoSemClienteOMesmoDeveSerInvalido()
+    {
+        var order = new Order(null, 10, _discount);
+        Assert.AreEqual(order.Valid, false);
+    }
+
+
+
+
 }

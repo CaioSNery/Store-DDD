@@ -113,3 +113,4 @@ C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\refint\Store.Tests.dll
 C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Tests.pdb
 C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Tests.genruntimeconfig.cache
 C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\ref\Store.Tests.dll
+C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Tests.sourcelink.json
