@@ -107,10 +107,10 @@ C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Tests.GeneratedMSBuildEdito
 C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Tests.AssemblyInfoInputs.cache
 C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Tests.AssemblyInfo.cs
 C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Tests.csproj.CoreCompileInputs.cache
+C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Tests.sourcelink.json
 C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Te.A86D18AC.Up2Date
 C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Tests.dll
 C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\refint\Store.Tests.dll
 C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Tests.pdb
 C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Tests.genruntimeconfig.cache
 C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\ref\Store.Tests.dll
-C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Tests.sourcelink.json

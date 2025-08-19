@@ -1,5 +1,7 @@
 
 
+using System.Collections.Generic;
+using System.Linq;
 using Flunt.Notifications;
 using Flunt.Validations;
 using Store.Domain.Commands.Interfaces;
@@ -40,5 +42,7 @@ namespace Store.Domain.Commands
 
             );
         }
+        public bool Valid => !Notifications.Any();
+        public bool Invalid => Notifications.Any();
     }
 }
