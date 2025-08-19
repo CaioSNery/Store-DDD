@@ -65,5 +65,7 @@ namespace Store.Domain.Entities
             Status = EOrderStatus.Canceled;
         }
 
+
+
     }
 }
