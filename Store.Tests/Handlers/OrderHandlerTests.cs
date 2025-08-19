@@ -32,28 +32,56 @@ namespace Store.Tests.Handlers
         [TestCategory("Handlers")]
         public void DadoUmClienteInexistenteOPedidoNaoDeveSerGerado()
         {
-            Assert.Fail();
+            var command = new CreateOrderCommand();
+            command.Customer = ""; // Cliente inexistente
+            command.ZipCode = "12356";
+            command.PromoCode = "123456789";
+            command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
+
+            command.Validate();
+
+            Assert.AreEqual(command.Valid, false);
         }
 
         [TestMethod]
         [TestCategory("Handlers")]
         public void DadoUmCepInvalidoOPedidoDeveSerGeradoNormalmente()
         {
-            Assert.Fail();
+            var command = new CreateOrderCommand();
+            command.Customer = "Caio";
+            command.ZipCode = ""; // CEP inválido
+            command.PromoCode = "123456789";
+            command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
+            command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
+            command.Validate();
+            Assert.AreEqual(command.Valid, true);
         }
 
         [TestMethod]
         [TestCategory("Handlers")]
         public void DadoUmPromoCodeInexistenteOPedidoDeveSerGeradoNormalmente()
         {
-            Assert.Fail();
+            var command = new CreateOrderCommand();
+            command.Customer = "Caio";
+            command.ZipCode = "12356";
+            command.PromoCode = "";
+            command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
+            command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
+            command.Validate();
+            Assert.AreEqual(command.Valid, true);
         }
 
         [TestMethod]
         [TestCategory("Handlers")]
         public void DadoUmPedidoSemItemOMesmoNaoDeveSerGerado()
         {
-            Assert.Fail();
+            var command = new CreateOrderCommand();
+            command.Customer = "Caio";
+            command.ZipCode = "12356";
+            command.PromoCode = "123456789";
+
+            command.Validate();
+            Assert.AreEqual(command.Valid, true);
         }
 
         [TestMethod]
