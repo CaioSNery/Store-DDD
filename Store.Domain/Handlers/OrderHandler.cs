@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Threading.Tasks;
 using Flunt.Notifications;
 using Store.Domain.Commands;
 using Store.Domain.Commands.Interfaces;
@@ -30,7 +31,7 @@ namespace Store.Domain.Handlers
             _productrepositoty = productrepositoty;
         }
 
-        public ICommandResult Handle(CreateOrderCommand command)
+        public async Task<ICommandResult> Handle(CreateOrderCommand command)
         {
             //Fail Fast Validation
             command.Validate();
@@ -56,8 +57,10 @@ namespace Store.Domain.Handlers
             if (command.Invalid)
                 return new GenericCommandResult(false, "Order Fail", Notifications);
 
-            _orderrepositoty.Save(order);
+            await _orderrepositoty.SaveAsync(order);
             return new GenericCommandResult(true, $"Order {order.Number} is Sucess", order);
         }
+
+
     }
 }
