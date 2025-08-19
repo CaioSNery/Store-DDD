@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Store.Api.Repository;
+using Store.Domain.Handlers;
 using Store.Domain.Repositories;
 using Store.Infra.Context;
 
@@ -15,6 +16,8 @@ builder.Services.AddControllers();
 
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<CustomerHandler>();
+builder.Services.AddScoped<OrderHandler>();
 
 var app = builder.Build();
 

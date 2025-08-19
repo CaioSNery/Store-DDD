@@ -45,7 +45,7 @@ namespace Store.Domain.Handlers
             var discount = _discountrepositoty.Get(command.PromoCode);
 
             var products = _productrepositoty.Get(ExtractGuids.Extract(command.Items)).ToList();
-            var order = new Order(customer, deliveryfee, discount);
+            var order = new Order(await customer, deliveryfee, discount);
             foreach (var item in command.Items)
             {
                 var product = products.Where(x => x.Id == item.Product).FirstOrDefault();

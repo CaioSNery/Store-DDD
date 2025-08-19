@@ -8,7 +8,8 @@ namespace Store.Domain.Repositories
 {
     public interface ICustomerRepository
     {
-        Customer Get(string name);
+        Task<Customer> Get(string name);
+        Task SaveAsync(Customer customer);
 
     }
 }
