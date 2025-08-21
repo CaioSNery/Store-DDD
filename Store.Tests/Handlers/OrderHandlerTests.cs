@@ -33,7 +33,7 @@ namespace Store.Tests.Handlers
         public void DadoUmClienteInexistenteOPedidoNaoDeveSerGerado()
         {
             var command = new CreateOrderCommand();
-            command.Customer = ""; // Cliente inexistente
+            command.Customer = Guid.Empty; // Cliente inexistente
             command.ZipCode = "12356";
             command.PromoCode = "123456789";
             command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
@@ -48,7 +48,7 @@ namespace Store.Tests.Handlers
         public void DadoUmCepInvalidoOPedidoDeveSerGeradoNormalmente()
         {
             var command = new CreateOrderCommand();
-            command.Customer = "Caio";
+            command.Customer = Guid.Empty;
             command.ZipCode = ""; // CEP inválido
             command.PromoCode = "123456789";
             command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
@@ -62,7 +62,7 @@ namespace Store.Tests.Handlers
         public void DadoUmPromoCodeInexistenteOPedidoDeveSerGeradoNormalmente()
         {
             var command = new CreateOrderCommand();
-            command.Customer = "Caio";
+            command.Customer = Guid.Empty;
             command.ZipCode = "12356";
             command.PromoCode = "";
             command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
@@ -76,7 +76,7 @@ namespace Store.Tests.Handlers
         public void DadoUmPedidoSemItemOMesmoNaoDeveSerGerado()
         {
             var command = new CreateOrderCommand();
-            command.Customer = "Caio";
+            command.Customer = Guid.Empty;
             command.ZipCode = "12356";
             command.PromoCode = "123456789";
 
@@ -89,7 +89,7 @@ namespace Store.Tests.Handlers
         public void DadoUmComandoInvalidOPedidoNaoDeveSerGerado()
         {
             var command = new CreateOrderCommand();
-            command.Customer = "";
+            command.Customer = Guid.Empty;
             command.ZipCode = "12356";
             command.PromoCode = "123456789";
             command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
@@ -105,7 +105,7 @@ namespace Store.Tests.Handlers
         public void DadoUmComandoValidoOPedidoDeveSerGerado()
         {
             var command = new CreateOrderCommand();
-            command.Customer = "Caio";
+            command.Customer = Guid.Empty;
             command.ZipCode = "12356";
             command.PromoCode = "123456789";
             command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));

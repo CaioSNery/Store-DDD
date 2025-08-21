@@ -1,0 +1,16 @@
+C:\Projetos\Store\Store.Infra\bin\Debug\net8.0\Store.Infra.deps.json
+C:\Projetos\Store\Store.Infra\bin\Debug\net8.0\Store.Infra.dll
+C:\Projetos\Store\Store.Infra\bin\Debug\net8.0\Store.Infra.pdb
+C:\Projetos\Store\Store.Infra\bin\Debug\net8.0\Store.Domain.dll
+C:\Projetos\Store\Store.Infra\bin\Debug\net8.0\Store.Domain.pdb
+C:\Projetos\Store\Store.Infra\obj\Debug\net8.0\Store.Infra.csproj.AssemblyReference.cache
+C:\Projetos\Store\Store.Infra\obj\Debug\net8.0\Store.Infra.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\Store\Store.Infra\obj\Debug\net8.0\Store.Infra.AssemblyInfoInputs.cache
+C:\Projetos\Store\Store.Infra\obj\Debug\net8.0\Store.Infra.AssemblyInfo.cs
+C:\Projetos\Store\Store.Infra\obj\Debug\net8.0\Store.Infra.csproj.CoreCompileInputs.cache
+C:\Projetos\Store\Store.Infra\obj\Debug\net8.0\Store.Infra.sourcelink.json
+C:\Projetos\Store\Store.Infra\obj\Debug\net8.0\Store.In.BD78135E.Up2Date
+C:\Projetos\Store\Store.Infra\obj\Debug\net8.0\Store.Infra.dll
+C:\Projetos\Store\Store.Infra\obj\Debug\net8.0\refint\Store.Infra.dll
+C:\Projetos\Store\Store.Infra\obj\Debug\net8.0\Store.Infra.pdb
+C:\Projetos\Store\Store.Infra\obj\Debug\net8.0\ref\Store.Infra.dll

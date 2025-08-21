@@ -1,5 +1,6 @@
 
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Flunt.Notifications;
@@ -17,15 +18,16 @@ namespace Store.Domain.Commands
             Items = new List<CreateOrderItemCommand>();
         }
 
-        public CreateOrderCommand(string customer, string zipCode, string promoCode, IList<CreateOrderItemCommand> items)
+        public CreateOrderCommand(Guid customer, string zipCode, string promoCode, IList<CreateOrderItemCommand> items)
         {
             Customer = customer;
             ZipCode = zipCode;
             PromoCode = promoCode;
             Items = items;
         }
+        public Guid Customer { get; set; }
 
-        public string Customer { get; set; }
+
         public string ZipCode { get; set; }
         public string PromoCode { get; set; }
         public IList<CreateOrderItemCommand> Items { get; set; }
@@ -38,7 +40,8 @@ namespace Store.Domain.Commands
         {
             AddNotifications(new Contract<Notification>()
             .Requires()
-            .IsNotNullOrEmpty(Customer, "Customer", "O Nome e obrigatório")
+            .IsFalse(Customer == Guid.Empty, "Customer", "Customer is mandatory")
+            .IsNotNullOrEmpty(ZipCode, "ZipCode", "ZipCode is mandatory")
 
             );
         }

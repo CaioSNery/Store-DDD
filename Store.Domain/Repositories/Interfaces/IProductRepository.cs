@@ -8,6 +8,14 @@ namespace Store.Domain.Repositories
 {
     public interface IProductRepository
     {
-        IEnumerable<Product> Get(IEnumerable<Guid> ids);
+        Task<IEnumerable<Product>> GetAsync(IEnumerable<Guid> ids);
+
+        Task SaveAsync(Product product);
+
+        Task DeleteAsync(Product product);
+
+        Task UpdateAsync(Product product);
+
+        Task<Product> GetByIdAsync(Guid id);
     }
 }

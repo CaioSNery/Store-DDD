@@ -4,26 +4,27 @@ using System.Linq;
 using System.Threading.Tasks;
 using Store.Domain.Commands;
 
-namespace Store.Tests.Commands{
-
-[TestClass]
-public class CreateOrderCommandsTests
+namespace Store.Tests.Commands
 {
 
-    [TestMethod]
-    [TestCategory("Handlers")]
-    public void DadoUmComandInvalidoOPedidoNaoDeveSerGerado()
+    [TestClass]
+    public class CreateOrderCommandsTests
     {
-        var command = new CreateOrderCommand();
-        command.Customer = "";
-        command.ZipCode = "123456";
-        command.PromoCode = "654321";
-        command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
-        command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
-        command.Validate();
 
-        Assert.AreEqual(command.IsValid, false);
+        [TestMethod]
+        [TestCategory("Handlers")]
+        public void DadoUmComandInvalidoOPedidoNaoDeveSerGerado()
+        {
+            var command = new CreateOrderCommand();
 
+            command.ZipCode = "123456";
+            command.PromoCode = "654321";
+            command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
+            command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
+            command.Validate();
+
+            Assert.AreEqual(command.IsValid, false);
+
+        }
     }
-}
 }

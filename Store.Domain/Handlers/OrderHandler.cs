@@ -38,17 +38,22 @@ namespace Store.Domain.Handlers
             if (command.Invalid)
                 return new GenericCommandResult(false, "Invalid Order", command.Notifications);
 
-            var customer = _customerrepositoty.Get(command.Customer);
+            var customer = await _customerrepositoty.GetByIdAsync(command.Customer);
 
             var deliveryfee = _deliveryfeerepositoty.Get(command.ZipCode);
 
             var discount = _discountrepositoty.Get(command.PromoCode);
 
-            var products = _productrepositoty.Get(ExtractGuids.Extract(command.Items)).ToList();
-            var order = new Order(await customer, deliveryfee, discount);
+            var products = await _productrepositoty.GetAsync(ExtractGuids.Extract(command.Items));
+            var productlist = products.ToList();
+
+            var order = new Order(customer, deliveryfee, discount);
+
             foreach (var item in command.Items)
             {
-                var product = products.Where(x => x.Id == item.Product).FirstOrDefault();
+                var product = productlist.FirstOrDefault(x => x.Id == item.Product);
+                if (product == null)
+                    return new GenericCommandResult(false, "Invalid Product", command.Notifications);
                 order.AddItem(product, item.Quantity);
             }
 

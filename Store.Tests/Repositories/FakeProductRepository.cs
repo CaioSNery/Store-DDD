@@ -7,6 +7,11 @@ namespace Store.Tests.Repositories
 {
     public class FakeProductRepository : IProductRepository
     {
+        public Task DeleteAsync(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Product> Get(IEnumerable<Guid> ids)
         {
             IList<Product> products = new List<Product>();
@@ -18,6 +23,26 @@ namespace Store.Tests.Repositories
             products.Add(new Product("Produto6", 10, true));
 
             return products;
+        }
+
+        public Task<IEnumerable<Product>> GetAsync(IEnumerable<Guid> ids)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Product> GetByIdAsync(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task SaveAsync(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task UpdateAsync(Product product)
+        {
+            throw new NotImplementedException();
         }
     }
 }

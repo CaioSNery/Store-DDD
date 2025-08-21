@@ -1,4 +1,10 @@
 C:\Projetos\Store\Store.Tests\bin\Debug\net8.0\CoverletSourceRootsMapping_Store.Tests
+C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Tests.csproj.AssemblyReference.cache
+C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Tests.AssemblyInfoInputs.cache
+C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Tests.AssemblyInfo.cs
+C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Tests.csproj.CoreCompileInputs.cache
+C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Tests.sourcelink.json
 C:\Projetos\Store\Store.Tests\bin\Debug\net8.0\testhost.dll
 C:\Projetos\Store\Store.Tests\bin\Debug\net8.0\testhost.exe
 C:\Projetos\Store\Store.Tests\bin\Debug\net8.0\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
@@ -102,12 +108,6 @@ C:\Projetos\Store\Store.Tests\bin\Debug\net8.0\Microsoft.VisualStudio.TestPlatfo
 C:\Projetos\Store\Store.Tests\bin\Debug\net8.0\Store.Domain.dll
 C:\Projetos\Store\Store.Tests\bin\Debug\net8.0\Store.Domain.pdb
 C:\Projetos\Store\Store.Tests\bin\Debug\net8.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
-C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Tests.csproj.AssemblyReference.cache
-C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Tests.GeneratedMSBuildEditorConfig.editorconfig
-C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Tests.AssemblyInfoInputs.cache
-C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Tests.AssemblyInfo.cs
-C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Tests.csproj.CoreCompileInputs.cache
-C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Tests.sourcelink.json
 C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Te.A86D18AC.Up2Date
 C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Tests.dll
 C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\refint\Store.Tests.dll

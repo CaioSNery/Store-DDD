@@ -8,8 +8,15 @@ namespace Store.Domain.Repositories
 {
     public interface ICustomerRepository
     {
-        Task<Customer> Get(string name);
+        Task<IEnumerable<Customer>> GetAllAsync();
+
         Task SaveAsync(Customer customer);
+
+        Task UpdateAsync(Customer customer);
+
+        Task DeleteAsync(Customer customer);
+
+        Task<Customer> GetByIdAsync(Guid id);
 
     }
 }
