@@ -18,6 +18,8 @@ namespace Store.Domain.Entities
         public decimal Price { get; private set; }
         public bool Active { get; private set; }
 
+        protected Product() { }
+
         public void Update(string title, decimal price, bool active)
         {
             Title = title;

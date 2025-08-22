@@ -1,4 +1,5 @@
 
+using System;
 using Flunt.Notifications;
 using Flunt.Validations;
 
@@ -18,6 +19,9 @@ namespace Store.Domain.Entities
             Quantity = quantity;
 
         }
+
+        public Guid OrderId { get; private set; }
+        public Order Order { get; private set; }
 
         public int Quantity { get; private set; }
         public decimal Price { get; private set; }

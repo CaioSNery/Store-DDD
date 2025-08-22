@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Store.Api.Repository;
+using Store.Domain.Commands;
 using Store.Domain.Handlers;
+using Store.Domain.Handlers.Interfaces;
 using Store.Domain.Repositories;
 using Store.Infra.Context;
 using Store.Infra.Repository;
@@ -17,9 +19,26 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
-builder.Services.AddScoped<ProductHandler>();
-builder.Services.AddScoped<CustomerHandler>();
-builder.Services.AddScoped<OrderHandler>();
+builder.Services.AddScoped<IDiscountRepository, DiscountRepository>();
+builder.Services.AddScoped<IDeliveryFeeRepository, DeliveryFeeRespository>();
+
+
+
+builder.Services.AddScoped<IHandler<CreateProductCommand>, ProductHandler>();
+builder.Services.AddScoped<IHandler<DeleteProductCommand>, ProductHandler>();
+builder.Services.AddScoped<IHandler<UpdateProductCommand>, ProductHandler>();
+
+
+builder.Services.AddScoped<IHandler<CreateCustomerCommand>, CustomerHandler>();
+builder.Services.AddScoped<IHandler<DeleteCustomerCommand>, CustomerHandler>();
+builder.Services.AddScoped<IHandler<UpdateCustomerCommand>, CustomerHandler>();
+
+builder.Services.AddScoped<IHandler<CreateOrderCommand>, OrderHandler>();
+builder.Services.AddScoped<IHandler<DeleteOrderCommand>, OrderHandler>();
+
+
+
+
 
 var app = builder.Build();
 

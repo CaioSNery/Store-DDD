@@ -11,10 +11,17 @@ namespace Store.Domain.Entities
         {
             Name = name;
             Email = email;
+            Orders = new List<Order>();
         }
 
         public string Name { get; private set; }
         public string Email { get; private set; }
+
+        public List<Order> Orders { get; private set; }
+
+        protected Customer() { }
+
+
 
         public void Update(string name, string email)
         {

@@ -43,7 +43,7 @@ namespace Store.Api.Controllers
 
         {
             var result = await _handler.Handle(command);
-            return Ok(new { message = result });
+            return Ok(new { message = "Deleted" });
         }
 
         [HttpGet("customers")]

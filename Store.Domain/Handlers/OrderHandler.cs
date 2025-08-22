@@ -10,7 +10,8 @@ using Store.Domain.Utils;
 
 namespace Store.Domain.Handlers
 {
-    public class OrderHandler : Notifiable<Notification>, IHandler<CreateOrderCommand>
+    public class OrderHandler : Notifiable<Notification>, IHandler<CreateOrderCommand>,
+    IHandler<DeleteOrderCommand>
     {
         private readonly ICustomerRepository _customerrepositoty;
         private readonly IDeliveryFeeRepository _deliveryfeerepositoty;
@@ -40,9 +41,9 @@ namespace Store.Domain.Handlers
 
             var customer = await _customerrepositoty.GetByIdAsync(command.Customer);
 
-            var deliveryfee = _deliveryfeerepositoty.Get(command.ZipCode);
+            var deliveryfee = await _deliveryfeerepositoty.Get(command.ZipCode);
 
-            var discount = _discountrepositoty.Get(command.PromoCode);
+            var discount = await _discountrepositoty.Get(command.PromoCode);
 
             var products = await _productrepositoty.GetAsync(ExtractGuids.Extract(command.Items));
             var productlist = products.ToList();

@@ -9,7 +9,8 @@ using Store.Domain.Handlers.Interfaces;
 using Store.Domain.Repositories;
 namespace Store.Domain.Handlers
 {
-    public class ProductHandler : Notifiable<Notification>, IHandler<CreateProductCommand>
+    public class ProductHandler : Notifiable<Notification>, IHandler<CreateProductCommand>,
+    IHandler<DeleteProductCommand>, IHandler<UpdateProductCommand>
     {
         private readonly IProductRepository _repository;
 

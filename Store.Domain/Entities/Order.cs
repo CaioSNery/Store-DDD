@@ -27,6 +27,7 @@ namespace Store.Domain.Entities
             Items = new List<OrderItem>();
         }
 
+        public Guid CustomerId { get; private set; }
         public Customer Customer { get; private set; }
         public DateTime Date { get; private set; }
         public string Number { get; private set; }

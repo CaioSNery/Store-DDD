@@ -20,6 +20,7 @@ namespace Store.Domain.Commands
             AddNotifications(new Contract<Notification>()
             .Requires()
             .IsNotNullOrEmpty(Title, "Title", "Invalid Title")
+            .IsGreaterThan(Price, 0, "Price", "Invalid -Price < 0")
 
             );
         }
