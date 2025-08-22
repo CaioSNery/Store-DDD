@@ -35,6 +35,8 @@ namespace Store.Domain.Entities
         public EOrderStatus Status { get; private set; }
         public Discount Discount { get; private set; }
 
+        protected Order() { }
+
         public void AddItem(Product product, int quantity)
         {
 

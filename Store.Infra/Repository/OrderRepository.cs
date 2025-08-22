@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Store.Domain.Entities;
 using Store.Domain.Repositories;
 using Store.Infra.Context;
@@ -22,6 +23,25 @@ namespace Store.Api.Repository
             _context.Add(order);
             await _context.SaveChangesAsync();
         }
+
+        public async Task DeleteAsync(Order order)
+        {
+            _context.Remove(order);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<Order> GetByIdAsync(Guid id)
+        {
+            return await _context.Orders.FindAsync(id);
+
+        }
+
+        public async Task<IEnumerable<Order>> GetAllAsync()
+        {
+            return await _context.Orders.ToListAsync();
+        }
+
+
 
 
     }

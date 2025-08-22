@@ -14,3 +14,5 @@ C:\Projetos\Store\Store.Infra\obj\Debug\net8.0\Store.Infra.dll
 C:\Projetos\Store\Store.Infra\obj\Debug\net8.0\refint\Store.Infra.dll
 C:\Projetos\Store\Store.Infra\obj\Debug\net8.0\Store.Infra.pdb
 C:\Projetos\Store\Store.Infra\obj\Debug\net8.0\ref\Store.Infra.dll
+C:\Projetos\Store\Store.Infra\bin\Debug\net8.0\Store.Infra.runtimeconfig.json
+C:\Projetos\Store\Store.Infra\obj\Debug\net8.0\Store.Infra.genruntimeconfig.cache

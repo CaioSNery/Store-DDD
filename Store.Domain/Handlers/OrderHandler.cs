@@ -66,6 +66,22 @@ namespace Store.Domain.Handlers
             return new GenericCommandResult(true, $"Order {order.Number} is Sucess", order);
         }
 
+        public async Task<ICommandResult> Handle(DeleteOrderCommand command)
+        {
+            command.Validate();
+            if (command.Invalid)
+                return new GenericCommandResult(false, "Invalid Id", command.Notifications);
+
+            var order = await _orderrepositoty.GetByIdAsync(command.Id);
+            if (order == null)
+                return new GenericCommandResult(false, "Not Found", command.Notifications);
+
+            await _orderrepositoty.SaveAsync(order);
+            return new GenericCommandResult(true, "Deleted sucessfully", order);
+
+
+        }
+
 
     }
 }

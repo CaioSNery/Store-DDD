@@ -27,5 +27,6 @@ namespace Store.Domain.Entities
         {
             return Price * Quantity;
         }
+        protected OrderItem() { }
     }
 }
