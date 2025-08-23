@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZD0BKWnSXu4=",
+  "dgSpecHash": "hHD9balkkj4=",
   "success": true,
-  "projectFilePath": "C:\\Projetos\\Store\\Store.Application\\Store.Application.csproj",
+  "projectFilePath": "c:\\Projetos\\Store\\Store.Application\\Store.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Caio Nery\\.nuget\\packages\\flunt\\2.0.5\\flunt.2.0.5.nupkg.sha512"
   ],

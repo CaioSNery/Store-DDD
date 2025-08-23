@@ -10,5 +10,10 @@ namespace Store.Tests.Repositories
         {
             return 10;
         }
+
+        Task<decimal> IDeliveryFeeRepository.Get(string zipCode)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -4596,11 +4596,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projetos\\Store\\Store.Api\\Store.Api.csproj",
+      "projectUniqueName": "c:\\Projetos\\Store\\Store.Api\\Store.Api.csproj",
       "projectName": "Store.Api",
-      "projectPath": "C:\\Projetos\\Store\\Store.Api\\Store.Api.csproj",
+      "projectPath": "c:\\Projetos\\Store\\Store.Api\\Store.Api.csproj",
       "packagesPath": "C:\\Users\\Caio Nery\\.nuget\\packages\\",
-      "outputPath": "C:\\Projetos\\Store\\Store.Api\\obj\\",
+      "outputPath": "c:\\Projetos\\Store\\Store.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Caio Nery\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -4615,11 +4615,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Projetos\\Store\\Store.Application\\Store.Application.csproj": {
-              "projectPath": "C:\\Projetos\\Store\\Store.Application\\Store.Application.csproj"
+            "c:\\Projetos\\Store\\Store.Application\\Store.Application.csproj": {
+              "projectPath": "c:\\Projetos\\Store\\Store.Application\\Store.Application.csproj"
             },
-            "C:\\Projetos\\Store\\Store.Infra\\Store.Infra.csproj": {
-              "projectPath": "C:\\Projetos\\Store\\Store.Infra\\Store.Infra.csproj"
+            "c:\\Projetos\\Store\\Store.Infra\\Store.Infra.csproj": {
+              "projectPath": "c:\\Projetos\\Store\\Store.Infra\\Store.Infra.csproj"
             }
           }
         }

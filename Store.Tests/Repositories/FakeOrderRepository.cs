@@ -7,7 +7,20 @@ namespace Store.Tests.Repositories
 {
     public class FakeOrderRepository : IOrderRepository
     {
+        public Task DeleteAsync(Order order)
+        {
+            throw new NotImplementedException();
+        }
 
+        public Task<IEnumerable<Order>> GetAllAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Order> GetByIdAsync(Guid id)
+        {
+            throw new NotImplementedException();
+        }
 
         public Task SaveAsync(Order order)
         {

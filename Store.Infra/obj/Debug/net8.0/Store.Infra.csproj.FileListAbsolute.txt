@@ -1,5 +1,5 @@
-C:\Projetos\Store\Store.Infra\bin\Debug\net8.0\Store.Infra.deps.json
-C:\Projetos\Store\Store.Infra\bin\Debug\net8.0\Store.Infra.runtimeconfig.json
+c:\Projetos\Store\Store.Infra\bin\Debug\net8.0\Store.Infra.deps.json
+c:\Projetos\Store\Store.Infra\bin\Debug\net8.0\Store.Infra.runtimeconfig.json
 C:\Projetos\Store\Store.Infra\bin\Debug\net8.0\Store.Infra.dll
 C:\Projetos\Store\Store.Infra\bin\Debug\net8.0\Store.Infra.pdb
 C:\Projetos\Store\Store.Infra\bin\Debug\net8.0\Store.Domain.dll
@@ -10,9 +10,9 @@ C:\Projetos\Store\Store.Infra\obj\Debug\net8.0\Store.Infra.AssemblyInfoInputs.ca
 C:\Projetos\Store\Store.Infra\obj\Debug\net8.0\Store.Infra.AssemblyInfo.cs
 C:\Projetos\Store\Store.Infra\obj\Debug\net8.0\Store.Infra.csproj.CoreCompileInputs.cache
 C:\Projetos\Store\Store.Infra\obj\Debug\net8.0\Store.Infra.sourcelink.json
-C:\Projetos\Store\Store.Infra\obj\Debug\net8.0\Store.In.BD78135E.Up2Date
+c:\Projetos\Store\Store.Infra\obj\Debug\net8.0\Store.In.BD78135E.Up2Date
 C:\Projetos\Store\Store.Infra\obj\Debug\net8.0\Store.Infra.dll
 C:\Projetos\Store\Store.Infra\obj\Debug\net8.0\refint\Store.Infra.dll
 C:\Projetos\Store\Store.Infra\obj\Debug\net8.0\Store.Infra.pdb
-C:\Projetos\Store\Store.Infra\obj\Debug\net8.0\Store.Infra.genruntimeconfig.cache
-C:\Projetos\Store\Store.Infra\obj\Debug\net8.0\ref\Store.Infra.dll
+c:\Projetos\Store\Store.Infra\obj\Debug\net8.0\Store.Infra.genruntimeconfig.cache
+c:\Projetos\Store\Store.Infra\obj\Debug\net8.0\ref\Store.Infra.dll

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Flunt.Notifications;
 using Flunt.Validations;
 using Store.Domain.Commands.Interfaces;
-using Store.Domain.Handlers.Interfaces;
+
 
 namespace Store.Domain.Commands
 {
