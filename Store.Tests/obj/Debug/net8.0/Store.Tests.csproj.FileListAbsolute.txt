@@ -1,7 +1,0 @@
-C:\Projetos\Store\Store.Tests\bin\Debug\net8.0\CoverletSourceRootsMapping_Store.Tests
-C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Tests.csproj.AssemblyReference.cache
-C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Tests.GeneratedMSBuildEditorConfig.editorconfig
-C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Tests.AssemblyInfoInputs.cache
-C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Tests.AssemblyInfo.cs
-C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Tests.csproj.CoreCompileInputs.cache
-C:\Projetos\Store\Store.Tests\obj\Debug\net8.0\Store.Tests.sourcelink.json
