@@ -25,6 +25,11 @@ namespace Store.Tests.Repositories
             return products;
         }
 
+        public Task<IEnumerable<Product>> GetAllAsync()
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<IEnumerable<Product>> GetAsync(IEnumerable<Guid> ids)
         {
             throw new NotImplementedException();

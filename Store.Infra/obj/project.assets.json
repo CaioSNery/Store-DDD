@@ -4086,11 +4086,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projetos\\Store\\Store.Infra\\Store.Infra.csproj",
+      "projectUniqueName": "c:\\Projetos\\Store\\Store.Infra\\Store.Infra.csproj",
       "projectName": "Store.Infra",
-      "projectPath": "C:\\Projetos\\Store\\Store.Infra\\Store.Infra.csproj",
+      "projectPath": "c:\\Projetos\\Store\\Store.Infra\\Store.Infra.csproj",
       "packagesPath": "C:\\Users\\Caio Nery\\.nuget\\packages\\",
-      "outputPath": "C:\\Projetos\\Store\\Store.Infra\\obj\\",
+      "outputPath": "c:\\Projetos\\Store\\Store.Infra\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Caio Nery\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -4105,8 +4105,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Projetos\\Store\\Store.Domain\\Store.Domain.csproj": {
-              "projectPath": "C:\\Projetos\\Store\\Store.Domain\\Store.Domain.csproj"
+            "c:\\Projetos\\Store\\Store.Domain\\Store.Domain.csproj": {
+              "projectPath": "c:\\Projetos\\Store\\Store.Domain\\Store.Domain.csproj"
             }
           }
         }

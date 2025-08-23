@@ -11,14 +11,14 @@ namespace Store.Domain.Entities
     public class Order : Entity
 
     {
-        public Order(Customer customer, decimal deliveryFee, Discount discount)
+        public Order(Guid customerId, decimal deliveryFee, Discount discount)
         {
 
             AddNotifications(new Contract<Notification>()
             .Requires()
-            .IsNotNull(customer, "Customer", "Cliente inválido")
+            .IsNotNull(customerId, "Customer", "Cliente inválido")
             );
-            Customer = customer;
+            CustomerId = customerId;
             Date = DateTime.Now;
             Number = Guid.NewGuid().ToString().Substring(0, 8);
             Status = EOrderStatus.WaitingPayment;

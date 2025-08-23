@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projetos\\Store\\Store.Domain\\Store.Domain.csproj": {}
+    "c:\\Projetos\\Store\\Store.Domain\\Store.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Projetos\\Store\\Store.Domain\\Store.Domain.csproj": {
+    "c:\\Projetos\\Store\\Store.Domain\\Store.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projetos\\Store\\Store.Domain\\Store.Domain.csproj",
+        "projectUniqueName": "c:\\Projetos\\Store\\Store.Domain\\Store.Domain.csproj",
         "projectName": "Store.Domain",
-        "projectPath": "C:\\Projetos\\Store\\Store.Domain\\Store.Domain.csproj",
+        "projectPath": "c:\\Projetos\\Store\\Store.Domain\\Store.Domain.csproj",
         "packagesPath": "C:\\Users\\Caio Nery\\.nuget\\packages\\",
-        "outputPath": "C:\\Projetos\\Store\\Store.Domain\\obj\\",
+        "outputPath": "c:\\Projetos\\Store\\Store.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Caio Nery\\AppData\\Roaming\\NuGet\\NuGet.Config"

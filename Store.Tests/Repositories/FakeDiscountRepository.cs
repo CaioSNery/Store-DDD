@@ -15,5 +15,10 @@ namespace Store.Tests.Repositories
                 return new Discount(10, DateTime.Now.AddDays(-5));
             return null;
         }
+
+        Task<Discount> IDiscountRepository.Get(string code)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
