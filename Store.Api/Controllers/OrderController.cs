@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Store.Api.Repository;
 using Store.Domain.Commands;
 using Store.Domain.Handlers;
+using Store.Domain.Repositories;
 
 namespace Store.Api.Controllers
 {
@@ -14,9 +15,9 @@ namespace Store.Api.Controllers
     public class OrderController : ControllerBase
     {
         private readonly OrderHandler _handler;
-        private readonly OrderRepository _repository;
+        private readonly IOrderRepository _repository;
 
-        public OrderController(OrderHandler handler, OrderRepository repository)
+        public OrderController(OrderHandler handler, IOrderRepository repository)
         {
             _handler = handler;
             _repository = repository;

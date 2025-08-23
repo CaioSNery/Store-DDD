@@ -40,6 +40,8 @@ namespace Store.Domain.Handlers
                 return new GenericCommandResult(false, "Invalid Order", command.Notifications);
 
             var customer = await _customerrepositoty.GetByIdAsync(command.Customer);
+            if (customer == null)
+                return new GenericCommandResult(false, "Customer not found", null);
 
             var deliveryfee = await _deliveryfeerepositoty.Get(command.ZipCode);
 

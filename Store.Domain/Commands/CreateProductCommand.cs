@@ -10,9 +10,9 @@ namespace Store.Domain.Commands
     public class CreateProductCommand : Notifiable<Notification>, ICommand
     {
 
-        public string Title { get; private set; }
-        public decimal Price { get; private set; }
-        public bool Active { get; private set; }
+        public string Title { get; set; }
+        public decimal Price { get; set; }
+        public bool Active { get; set; }
 
 
         public void Validate()

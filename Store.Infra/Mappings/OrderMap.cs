@@ -31,7 +31,9 @@ namespace Store.Infra.Mappings
 
             builder.HasOne(c => c.Customer)
             .WithMany(c => c.Orders)
-            .HasForeignKey(c => c.CustomerId);
+            .HasForeignKey(c => c.CustomerId)
+            .IsRequired();
+
 
             builder.HasMany(c => c.Items)
             .WithOne(c => c.Order)

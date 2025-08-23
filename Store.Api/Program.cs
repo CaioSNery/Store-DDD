@@ -12,6 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 builder.Services.AddDbContext<StoreDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 builder.Services.AddControllers();
@@ -22,6 +23,9 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IDiscountRepository, DiscountRepository>();
 builder.Services.AddScoped<IDeliveryFeeRepository, DeliveryFeeRespository>();
 
+builder.Services.AddScoped<CustomerHandler>();
+builder.Services.AddScoped<OrderHandler>();
+builder.Services.AddScoped<ProductHandler>();
 
 
 builder.Services.AddScoped<IHandler<CreateProductCommand>, ProductHandler>();
@@ -52,9 +56,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.MapControllers();
-
-
-
 
 
 app.Run();

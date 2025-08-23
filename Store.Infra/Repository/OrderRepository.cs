@@ -32,13 +32,17 @@ namespace Store.Api.Repository
 
         public async Task<Order> GetByIdAsync(Guid id)
         {
-            return await _context.Orders.FindAsync(id);
+            return await _context.Orders
+            .AsNoTracking()
+            .Include(o => o.Customer)
+            .Include(o => o.Items)
+            .FirstOrDefaultAsync(o => o.Id == id);
 
         }
 
         public async Task<IEnumerable<Order>> GetAllAsync()
         {
-            return await _context.Orders.ToListAsync();
+            return await _context.Orders.AsNoTracking().ToListAsync();
         }
 
 

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Store.Application.Dtos;
 using Store.Domain.Commands;
+using Store.Domain.Entities;
 using Store.Domain.Handlers;
 using Store.Domain.Handlers.Interfaces;
 using Store.Domain.Repositories;
@@ -27,8 +29,19 @@ namespace Store.Api.Controllers
         public async Task<IActionResult> Create([FromBody] CreateCustomerCommand command)
         {
             var result = await _handler.Handle(command);
-            return Ok(new { message = result });
+            if (!result.Success)
+                return BadRequest(result);
 
+            var customer = (Customer)result.Data;
+
+            var dto = new CustomerDTO
+            {
+                Id = customer.Id,
+                Name = customer.Name,
+                Email = customer.Email
+            };
+
+            return Ok(new GenericCommandResult(true, "Customer created successfully", dto));
         }
 
         [HttpPut("customers/id:int")]
@@ -61,6 +74,8 @@ namespace Store.Api.Controllers
             if (result == null) return NotFound();
             return Ok(new { message = result });
         }
+
+
     }
 
 }

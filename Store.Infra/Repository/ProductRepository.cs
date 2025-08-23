@@ -47,5 +47,10 @@ namespace Store.Infra.Repository
             _context.Products.Update(product);
             await _context.SaveChangesAsync();
         }
+
+        public async Task<IEnumerable<Product>> GetAllAsync()
+        {
+            return await _context.Products.AsNoTracking().ToListAsync();
+        }
     }
 }

@@ -5,15 +5,15 @@ namespace Store.Domain.Commands
 {
     public class GenericCommandResult : ICommandResult
     {
-        public GenericCommandResult(bool sucess, string message, object data)
+        public GenericCommandResult(bool success, string message, object data)
         {
-            Sucess = sucess;
+            Success = success;
             Message = message;
             Data = data;
         }
 
-        public bool Sucess { get; set; }
-        public string Message { get; set; }
-        public object Data { get; set; }
+        public bool Success { get; }
+        public string Message { get; }
+        public object Data { get; }
     }
 }

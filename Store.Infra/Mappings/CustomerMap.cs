@@ -16,10 +16,13 @@ namespace Store.Infra.Mappings
 
             builder.HasKey(c => c.Id);
 
+            builder.Property(c => c.Id)
+            .ValueGeneratedNever();
+
             builder.Property(c => c.Name)
             .IsRequired()
-            .HasMaxLength(30)
-            ;
+            .HasMaxLength(30);
+
 
             builder.HasMany(c => c.Orders)
             .WithOne(c => c.Customer)

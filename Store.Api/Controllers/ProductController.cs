@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Store.Application.Dtos;
 using Store.Domain.Commands;
 using Store.Domain.Entities;
 using Store.Domain.Handlers;
@@ -27,7 +28,18 @@ namespace Store.Api.Controllers
         public async Task<IActionResult> Create([FromBody] CreateProductCommand command)
         {
             var result = await _handler.Handle(command);
-            return Ok(new { message = result });
+            if (!result.Success)
+                return BadRequest(result);
+
+            var product = (Product)result.Data;
+
+            return Ok(new ProductDTO
+            {
+                Id = product.Id,
+                Title = product.Title,
+                Price = product.Price,
+                Active = product.Active
+            });
         }
 
         [HttpDelete("products/id:int")]
@@ -44,15 +56,15 @@ namespace Store.Api.Controllers
             return Ok(new { message = result });
         }
 
-        [HttpGet("products")]
+        [HttpGet("products/id:int")]
         public async Task<IActionResult> GetById(Guid id)
         {
             var result = await _repository.GetByIdAsync(id);
             return Ok(new { message = result });
         }
 
-        [HttpGet("products/id:int")]
-        public async Task<IActionResult> GetAll([FromQuery] IEnumerable<Guid> ids)
+        [HttpGet("products/ids/id:int")]
+        public async Task<IActionResult> GetBysIdsList([FromQuery] IEnumerable<Guid> ids)
         {
             if (ids == null || !ids.Any())
                 return BadRequest("At least one Id must be provided");
@@ -64,6 +76,15 @@ namespace Store.Api.Controllers
 
             return Ok(products);
         }
+
+        [HttpGet("products")]
+        public async Task<IActionResult> GetAll()
+        {
+            var products = await _repository.GetAllAsync();
+            return Ok(products);
+
+        }
+
 
     }
 }
