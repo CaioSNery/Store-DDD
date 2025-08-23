@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Store.Application.Dtos;
+
 using Store.Domain.Commands;
 using Store.Domain.Entities;
 using Store.Domain.Handlers;
@@ -28,18 +28,7 @@ namespace Store.Api.Controllers
         public async Task<IActionResult> Create([FromBody] CreateProductCommand command)
         {
             var result = await _handler.Handle(command);
-            if (!result.Success)
-                return BadRequest(result);
-
-            var product = (Product)result.Data;
-
-            return Ok(new ProductDTO
-            {
-                Id = product.Id,
-                Title = product.Title,
-                Price = product.Price,
-                Active = product.Active
-            });
+            return Ok(new { message = result });
         }
 
         [HttpDelete("products/id:int")]

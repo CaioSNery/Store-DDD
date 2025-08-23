@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Store.Application.Dtos;
+
 using Store.Domain.Commands;
 using Store.Domain.Entities;
 using Store.Domain.Handlers;
@@ -29,19 +29,7 @@ namespace Store.Api.Controllers
         public async Task<IActionResult> Create([FromBody] CreateCustomerCommand command)
         {
             var result = await _handler.Handle(command);
-            if (!result.Success)
-                return BadRequest(result);
-
-            var customer = (Customer)result.Data;
-
-            var dto = new CustomerDTO
-            {
-                Id = customer.Id,
-                Name = customer.Name,
-                Email = customer.Email
-            };
-
-            return Ok(new GenericCommandResult(true, "Customer created successfully", dto));
+            return Ok(new { message = result });
         }
 
         [HttpPut("customers/id:int")]
