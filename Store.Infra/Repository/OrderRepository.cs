@@ -34,9 +34,8 @@ namespace Store.Api.Repository
         {
             return await _context.Orders
             .AsNoTracking()
-            .Include(o => o.Customer)
-            .Include(o => o.Items)
-            .FirstOrDefaultAsync(o => o.Id == id);
+            .Include(x => x.Customer)
+            .FirstOrDefaultAsync(x => x.Id == id);
 
         }
 

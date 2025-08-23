@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Flunt.Notifications;
+using Store.Application.Dtos;
 using Store.Domain.Commands;
 using Store.Domain.Commands.Interfaces;
 using Store.Domain.Entities;
@@ -43,6 +44,7 @@ namespace Store.Domain.Handlers
             if (customer == null)
                 return new GenericCommandResult(false, "Customer not found", null);
 
+
             var deliveryfee = await _deliveryfeerepositoty.Get(command.ZipCode);
 
             var discount = await _discountrepositoty.Get(command.PromoCode);
@@ -50,7 +52,9 @@ namespace Store.Domain.Handlers
             var products = await _productrepositoty.GetAsync(ExtractGuids.Extract(command.Items));
             var productlist = products.ToList();
 
-            var order = new Order(customer, deliveryfee, discount);
+            var order = new Order(customer.Id, deliveryfee, discount);
+
+
 
             foreach (var item in command.Items)
             {
@@ -66,7 +70,15 @@ namespace Store.Domain.Handlers
                 return new GenericCommandResult(false, "Order Fail", Notifications);
 
             await _orderrepositoty.SaveAsync(order);
-            return new GenericCommandResult(true, $"Order {order.Number} is Sucess", order);
+
+            var dto = new OrderDto
+            {
+                Id = order.Id,
+                Number = order.Number,
+                CustomerName = customer.Name,
+
+            };
+            return new GenericCommandResult(true, $"Order {order.Number} is Sucess", dto);
         }
 
         public async Task<ICommandResult> Handle(DeleteOrderCommand command)
@@ -79,8 +91,8 @@ namespace Store.Domain.Handlers
             if (order == null)
                 return new GenericCommandResult(false, "Not Found", command.Notifications);
 
-            await _orderrepositoty.SaveAsync(order);
-            return new GenericCommandResult(true, "Deleted sucessfully", order);
+            await _orderrepositoty.DeleteAsync(order);
+            return new GenericCommandResult(true, "Deleted sucessfully", null);
 
 
         }
