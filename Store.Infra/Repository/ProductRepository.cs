@@ -27,6 +27,7 @@ namespace Store.Infra.Repository
         public async Task<IEnumerable<Product>> GetAsync(IEnumerable<Guid> ids)
         {
             return await _context.Products
+            .AsNoTracking()
             .Where(p => ids.Contains(p.Id))
             .ToListAsync();
         }
@@ -38,7 +39,7 @@ namespace Store.Infra.Repository
 
         public async Task SaveAsync(Product product)
         {
-            _context.Products.Add(product);
+            await _context.Products.AddAsync(product);
             await _context.SaveChangesAsync();
         }
 
@@ -48,9 +49,12 @@ namespace Store.Infra.Repository
             await _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<Product>> GetAllAsync()
+        public async Task<IEnumerable<Product>> GetAllAsync(int skip = 0, int take = 25)
         {
-            return await _context.Products.AsNoTracking().ToListAsync();
+            return await _context.Products.AsNoTracking()
+            .Skip(skip)
+             .Take(take)
+              .ToListAsync();
         }
     }
 }

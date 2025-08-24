@@ -19,7 +19,7 @@ namespace Store.Infra.Repository
 
         public async Task<decimal> Get(string zipCode)
         {
-            var fee = await _context.DeliveryFees
+            var fee = await _context.DeliveryFees.AsNoTracking()
             .FirstOrDefaultAsync(x => x.ZipCode == zipCode);
 
             return fee?.Fee ?? 0m;

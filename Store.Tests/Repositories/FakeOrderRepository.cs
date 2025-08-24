@@ -12,7 +12,7 @@ namespace Store.Tests.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Order>> GetAllAsync()
+        public Task<IEnumerable<Order>> GetAllAsync(int skip = 0, int take = 25)
         {
             throw new NotImplementedException();
         }

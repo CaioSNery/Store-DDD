@@ -18,7 +18,7 @@ namespace Store.Tests.Repositories
             return null;
         }
 
-        public Task<IEnumerable<Customer>> GetAllAsync()
+        public Task<IEnumerable<Customer>> GetAllAsync(int skip = 0, int take = 25)
         {
             throw new NotImplementedException();
         }

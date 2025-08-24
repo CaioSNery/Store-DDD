@@ -16,12 +16,18 @@ namespace Store.Infra.Mappings
 
             builder.HasKey(o => o.Id);
 
+            builder.Property(c => c.Id)
+            .ValueGeneratedOnAdd();
+
             builder.Property(o => o.Number)
             .IsRequired()
             .HasMaxLength(15);
 
             builder.Property(o => o.Date)
-            .IsRequired();
+            .IsRequired()
+            .HasColumnName("Date")
+            .HasColumnType("SMALLDATETIME")
+            .HasDefaultValue(DateTime.Now.ToUniversalTime());
 
             builder.Property(o => o.Status)
             .IsRequired();

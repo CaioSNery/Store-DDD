@@ -20,7 +20,7 @@ namespace Store.Api.Repository
 
         public async Task SaveAsync(Order order)
         {
-            _context.Add(order);
+            await _context.AddAsync(order);
             await _context.SaveChangesAsync();
         }
 
@@ -39,9 +39,12 @@ namespace Store.Api.Repository
 
         }
 
-        public async Task<IEnumerable<Order>> GetAllAsync()
+        public async Task<IEnumerable<Order>> GetAllAsync(int skip = 0, int take = 25)
         {
-            return await _context.Orders.AsNoTracking().ToListAsync();
+            return await _context.Orders.AsNoTracking()
+            .Skip(skip)
+            .Take(take)
+            .ToListAsync();
         }
 
 

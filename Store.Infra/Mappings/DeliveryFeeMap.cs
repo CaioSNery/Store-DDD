@@ -14,6 +14,10 @@ namespace Store.Infra.Mappings
         {
             builder.HasKey(c => c.Id);
 
+            builder.Property(c => c.Id)
+           .ValueGeneratedOnAdd();
+
+
             builder.Property(c => c.Fee)
             .HasColumnType("decimal(18,2)");
         }

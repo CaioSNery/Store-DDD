@@ -10,7 +10,7 @@ namespace Store.Domain.Repositories
     {
         Task<IEnumerable<Product>> GetAsync(IEnumerable<Guid> ids);
 
-        Task<IEnumerable<Product>> GetAllAsync();
+        Task<IEnumerable<Product>> GetAllAsync(int skip = 0, int take = 25);
 
         Task SaveAsync(Product product);
 

@@ -16,6 +16,9 @@ namespace Store.Infra.Mappings
 
             builder.HasKey(p => p.Id);
 
+            builder.Property(c => c.Id)
+            .ValueGeneratedOnAdd();
+
             builder.Property(p => p.Title)
             .IsRequired()
             .HasMaxLength(30)

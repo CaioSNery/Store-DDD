@@ -19,9 +19,12 @@ namespace Store.Infra.Mappings
             builder.Property(c => c.Id)
             .ValueGeneratedNever();
 
+
             builder.Property(c => c.Name)
             .IsRequired()
-            .HasMaxLength(30);
+            .HasColumnName("Name")
+            .HasColumnType("NVARCHAR")
+            .HasMaxLength(80);
 
 
             builder.HasMany(c => c.Orders)

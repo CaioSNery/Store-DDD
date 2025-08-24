@@ -25,7 +25,7 @@ namespace Store.Tests.Repositories
             return products;
         }
 
-        public Task<IEnumerable<Product>> GetAllAsync()
+        public Task<IEnumerable<Product>> GetAllAsync(int skip = 0, int take = 25)
         {
             throw new NotImplementedException();
         }

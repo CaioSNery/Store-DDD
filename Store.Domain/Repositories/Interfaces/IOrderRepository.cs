@@ -11,6 +11,6 @@ namespace Store.Domain.Repositories
         Task SaveAsync(Order order);
         Task DeleteAsync(Order order);
         Task<Order> GetByIdAsync(Guid id);
-        Task<IEnumerable<Order>> GetAllAsync();
+        Task<IEnumerable<Order>> GetAllAsync(int skip = 0, int take = 25);
     }
 }

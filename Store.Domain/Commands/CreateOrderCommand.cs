@@ -27,7 +27,6 @@ namespace Store.Domain.Commands
         }
         public Guid Customer { get; set; }
 
-
         public string ZipCode { get; set; }
         public string PromoCode { get; set; }
         public IList<CreateOrderItemCommand> Items { get; set; }

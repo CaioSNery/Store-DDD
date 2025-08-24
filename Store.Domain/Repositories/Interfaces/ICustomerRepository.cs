@@ -8,7 +8,7 @@ namespace Store.Domain.Repositories
 {
     public interface ICustomerRepository
     {
-        Task<IEnumerable<Customer>> GetAllAsync();
+        Task<IEnumerable<Customer>> GetAllAsync(int skip = 0, int take = 25);
 
         Task SaveAsync(Customer customer);
 

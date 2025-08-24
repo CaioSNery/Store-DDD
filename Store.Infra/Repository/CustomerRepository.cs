@@ -27,13 +27,15 @@ namespace Store.Api.Repository
 
         public async Task<Customer> GetByIdAsync(Guid id)
         {
-            return await _context.Customers.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
+            return await _context.Customers
+            .AsNoTracking()
+            .FirstOrDefaultAsync(x => x.Id == id);
 
         }
 
         public async Task SaveAsync(Customer customer)
         {
-            _context.Add(customer);
+            await _context.AddAsync(customer);
             await _context.SaveChangesAsync();
         }
 
@@ -43,9 +45,13 @@ namespace Store.Api.Repository
             await _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<Customer>> GetAllAsync()
+        public async Task<IEnumerable<Customer>> GetAllAsync(int skip = 0, int take = 25)
         {
-            return await _context.Customers.AsNoTracking().ToListAsync();
+            return await _context.Customers
+            .AsNoTracking()
+            .Skip(skip)
+            .Take(take)
+            .ToListAsync();
         }
     }
 }

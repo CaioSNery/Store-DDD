@@ -24,7 +24,7 @@ namespace Store.Infra.Repository
             if (string.IsNullOrWhiteSpace(code))
                 return null;
 
-            return await _context.Discounts
+            return await _context.Discounts.AsNoTracking()
                 .FirstOrDefaultAsync(x => x.Code == code && x.ExpireDate == DateTime.Now);
         }
     }
