@@ -1,9 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using Store.Api.Repository;
+using Store.Application.Handlers;
 using Store.Domain.Commands;
 using Store.Domain.Handlers;
 using Store.Domain.Handlers.Interfaces;
 using Store.Domain.Repositories;
+using Store.Domain.Repositories.Interfaces;
 using Store.Infra.Context;
 using Store.Infra.Repository;
 
@@ -22,10 +24,15 @@ builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IDiscountRepository, DiscountRepository>();
 builder.Services.AddScoped<IDeliveryFeeRepository, DeliveryFeeRespository>();
+builder.Services.AddScoped<IDeliveryRepository, DeliveryRepository>();
 
 builder.Services.AddScoped<CustomerHandler>();
 builder.Services.AddScoped<OrderHandler>();
 builder.Services.AddScoped<ProductHandler>();
+builder.Services.AddScoped<DeliveryHandler>();
+builder.Services.AddHostedService<OrderCancellationService>();
+
+builder.Services.AddScoped<IHandler<CreateDeliveryCommand>, DeliveryHandler>();
 
 
 builder.Services.AddScoped<IHandler<CreateProductCommand>, ProductHandler>();

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Store.Domain.Entities;
+using Store.Domain.Enums;
 using Store.Domain.Repositories;
 using Store.Infra.Context;
 
@@ -47,8 +48,12 @@ namespace Store.Api.Repository
             .ToListAsync();
         }
 
-
-
-
+        public async Task<IEnumerable<Order>> GetWaitingPaymentOlderThanAsync(TimeSpan timeSpan)
+        {
+            var limit = DateTime.Now.Subtract(timeSpan);
+            return await _context.Orders
+            .Where(o => o.Status == EOrderStatus.WaitingPayment && o.Date < limit)
+            .ToListAsync();
+        }
     }
 }

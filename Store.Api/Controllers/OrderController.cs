@@ -19,10 +19,12 @@ namespace Store.Api.Controllers
         private readonly OrderHandler _handler;
         private readonly IOrderRepository _repository;
 
+
         public OrderController(OrderHandler handler, IOrderRepository repository)
         {
             _handler = handler;
             _repository = repository;
+
         }
 
 

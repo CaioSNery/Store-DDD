@@ -61,13 +61,25 @@ namespace Store.Domain.Entities
 
         public void Pay(decimal amount)
         {
+            if (amount <= 0)
+                return;
+
             if (amount == Total())
                 this.Status = EOrderStatus.WaitingDelivery;
         }
 
         public void Cancel()
         {
+
             Status = EOrderStatus.Canceled;
+        }
+
+        public void Ship()
+        {
+            if (Status != EOrderStatus.WaitingDelivery)
+                throw new InvalidOperationException("O pedido não pode ser enviado antes do pagamento.");
+
+            Status = EOrderStatus.Shipped;
         }
 
 

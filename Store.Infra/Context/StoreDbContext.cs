@@ -19,6 +19,8 @@ namespace Store.Infra.Context
 
         public DbSet<Discount> Discounts { get; set; }
 
+        public DbSet<Delivery> Deliveries { get; set; }
+
         public DbSet<DeliveryFee> DeliveryFees { get; set; }
 
         public DbSet<OrderItem> OrderItems { get; set; }
