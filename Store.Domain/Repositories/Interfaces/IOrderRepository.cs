@@ -14,6 +14,8 @@ namespace Store.Domain.Repositories
         Task<IEnumerable<Order>> GetAllAsync(int skip = 0, int take = 25);
         Task<IEnumerable<Order>> GetWaitingPaymentOlderThanAsync(TimeSpan timeSpan);
 
+        Task UpdateAsync(Order order);
+
 
     }
 }

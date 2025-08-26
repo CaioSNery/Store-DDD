@@ -55,5 +55,11 @@ namespace Store.Api.Repository
             .Where(o => o.Status == EOrderStatus.WaitingPayment && o.Date < limit)
             .ToListAsync();
         }
+
+        public async Task UpdateAsync(Order order)
+        {
+            _context.Orders.Update(order);
+            await _context.SaveChangesAsync();
+        }
     }
 }

@@ -7,14 +7,10 @@ namespace Store.Domain.Entities
 {
     public class Delivery : Entity
     {
-        public Delivery(Guid orderId, Order order, bool payment)
+        public Delivery(Guid orderId, bool payment)
         {
             OrderId = orderId;
-            Order = order;
             Payment = payment;
-
-            if (Payment)
-                Order.Pay(Order.Total());
 
         }
         protected Delivery() { }

@@ -22,6 +22,11 @@ namespace Store.Tests.Repositories
             throw new NotImplementedException();
         }
 
+        public Task<IEnumerable<Order>> GetWaitingPaymentOlderThanAsync(TimeSpan timeSpan)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task SaveAsync(Order order)
         {
             return Task.CompletedTask;

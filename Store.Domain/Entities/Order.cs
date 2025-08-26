@@ -38,6 +38,7 @@ namespace Store.Domain.Entities
 
         protected Order() { }
 
+
         public void AddItem(Product product, int quantity)
         {
 
@@ -50,9 +51,12 @@ namespace Store.Domain.Entities
         public decimal Total()
         {
             decimal total = 0;
-            foreach (var item in Items)
+            if (Items != null)
             {
-                total += item.Total();
+                foreach (var item in Items)
+                {
+                    total += item.Total();
+                }
             }
             total += DeliveryFee;
             total -= Discount != null ? Discount.Value() : 0;

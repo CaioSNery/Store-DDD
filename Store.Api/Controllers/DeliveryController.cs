@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Store.Application.Dtos;
 using Store.Application.Handlers;
 using Store.Domain.Commands;
+using Store.Domain.Repositories;
 using Store.Domain.Repositories.Interfaces;
 
 namespace Store.Api.Controllers
@@ -16,17 +18,28 @@ namespace Store.Api.Controllers
         private readonly DeliveryHandler _handler;
         private readonly IDeliveryRepository _repository;
 
-        public DeliveryController(DeliveryHandler handler, IDeliveryRepository repository)
+        private readonly IOrderRepository _ordemrepository;
+        public DeliveryController(DeliveryHandler handler, IDeliveryRepository repository, IOrderRepository ordemrepository)
         {
             _handler = handler;
             _repository = repository;
+            _ordemrepository = ordemrepository;
         }
 
         [HttpPost("deliveries")]
         public async Task<IActionResult> Create([FromBody] CreateDeliveryCommand command)
         {
             var result = await _handler.Handle(command);
-            return Ok(result);
+            var order = await _ordemrepository.GetByIdAsync(command.OrderId);
+            if (order == null) return NotFound("Invalid order id");
+
+            var dto = new DeliveryDto
+            {
+                OrderId = order.Id,
+                Payment = true
+
+            };
+            return Ok(dto);
         }
 
         [HttpGet("deliveries/id:int")]

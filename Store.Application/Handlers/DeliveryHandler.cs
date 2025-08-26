@@ -33,11 +33,16 @@ namespace Store.Application.Handlers
             if (order == null)
                 return new GenericCommandResult(false, "Order Not Found", null);
 
-            var delivery = new Delivery(order.Id, order, command.Payment);
+            var delivery = new Delivery(order.Id, command.Payment);
+
+            if (command.Payment)
+            {
+                order.Pay(order.Total());
+                await _orderRepository.UpdateAsync(order);
+            }
 
             await _deliveryRepository.SaveAsync(delivery);
 
-            await _orderRepository.SaveAsync(order);
 
             return new GenericCommandResult(true, "Delivery Created", delivery);
 
