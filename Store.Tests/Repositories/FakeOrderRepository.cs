@@ -31,5 +31,10 @@ namespace Store.Tests.Repositories
         {
             return Task.CompletedTask;
         }
+
+        public Task UpdateAsync(Order order)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

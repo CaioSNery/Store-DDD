@@ -8,8 +8,7 @@ namespace Store.Application.Dtos
     public class DeliveryDto
     {
         public Guid OrderId { get; set; }
-
-
+        
         public bool Payment { get; set; }
     }
 }
