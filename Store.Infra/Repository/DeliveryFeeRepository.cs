@@ -8,11 +8,11 @@ using Store.Infra.Context;
 
 namespace Store.Infra.Repository
 {
-    public class DeliveryFeeRespository : IDeliveryFeeRepository
+    public class DeliveryFeeRepository : IDeliveryFeeRepository
     {
         private readonly StoreDbContext _context;
 
-        public DeliveryFeeRespository(StoreDbContext context)
+        public DeliveryFeeRepository(StoreDbContext context)
         {
             _context = context;
         }

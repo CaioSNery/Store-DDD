@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Store.Api.Extensions;
 using Store.Api.Repository;
 using Store.Application.Handlers;
 using Store.Domain.Commands;
@@ -15,37 +16,17 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<StoreDbContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
+
+
 builder.Services.AddControllers();
 
-builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
-builder.Services.AddScoped<IOrderRepository, OrderRepository>();
-builder.Services.AddScoped<IProductRepository, ProductRepository>();
-builder.Services.AddScoped<IDiscountRepository, DiscountRepository>();
-builder.Services.AddScoped<IDeliveryFeeRepository, DeliveryFeeRespository>();
-builder.Services.AddScoped<IDeliveryRepository, DeliveryRepository>();
-
-builder.Services.AddScoped<CustomerHandler>();
-builder.Services.AddScoped<OrderHandler>();
-builder.Services.AddScoped<ProductHandler>();
-builder.Services.AddScoped<DeliveryHandler>();
-builder.Services.AddHostedService<OrderCancellationService>();
-
-builder.Services.AddScoped<IHandler<CreateDeliveryCommand>, DeliveryHandler>();
 
 
-builder.Services.AddScoped<IHandler<CreateProductCommand>, ProductHandler>();
-builder.Services.AddScoped<IHandler<DeleteProductCommand>, ProductHandler>();
-builder.Services.AddScoped<IHandler<UpdateProductCommand>, ProductHandler>();
+builder.Services.AddDbContextExtensions();
 
+builder.Services.AddRepositoriesExtensions();
 
-builder.Services.AddScoped<IHandler<CreateCustomerCommand>, CustomerHandler>();
-builder.Services.AddScoped<IHandler<DeleteCustomerCommand>, CustomerHandler>();
-builder.Services.AddScoped<IHandler<UpdateCustomerCommand>, CustomerHandler>();
-
-builder.Services.AddScoped<IHandler<CreateOrderCommand>, OrderHandler>();
-builder.Services.AddScoped<IHandler<DeleteOrderCommand>, OrderHandler>();
+builder.Services.AddHandleExtensions();
 
 
 
@@ -58,7 +39,7 @@ app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "DeliveryFast API v1");
-    c.RoutePrefix = string.Empty; // abre direto na raiz
+    c.RoutePrefix = string.Empty;
 });
 
 

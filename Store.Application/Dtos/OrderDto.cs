@@ -13,4 +13,6 @@ namespace Store.Application.Dtos
         public Guid CustomerId { get; set; }
 
     }
+
+
 }
