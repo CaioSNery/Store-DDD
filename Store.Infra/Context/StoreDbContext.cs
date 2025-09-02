@@ -17,6 +17,8 @@ namespace Store.Infra.Context
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Product> Products { get; set; }
 
+        public DbSet<User> Users { get; set; } = null!;
+
         public DbSet<Discount> Discounts { get; set; }
 
         public DbSet<Delivery> Deliveries { get; set; }
@@ -24,6 +26,8 @@ namespace Store.Infra.Context
         public DbSet<DeliveryFee> DeliveryFees { get; set; }
 
         public DbSet<OrderItem> OrderItems { get; set; }
+
+        public DbSet<Role> Roles { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

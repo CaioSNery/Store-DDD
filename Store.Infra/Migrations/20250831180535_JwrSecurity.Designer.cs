@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Store.Infra.Context;
 
@@ -11,9 +12,11 @@ using Store.Infra.Context;
 namespace Store.Infra.Migrations
 {
     [DbContext(typeof(StoreDbContext))]
-    partial class StoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250831180535_JwrSecurity")]
+    partial class JwrSecurity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -109,7 +112,7 @@ namespace Store.Infra.Migrations
                     b.Property<DateTime>("Date")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("SMALLDATETIME")
-                        .HasDefaultValue(new DateTime(2025, 9, 2, 10, 7, 45, 276, DateTimeKind.Utc).AddTicks(5567))
+                        .HasDefaultValue(new DateTime(2025, 8, 31, 18, 5, 32, 710, DateTimeKind.Utc).AddTicks(7726))
                         .HasColumnName("Date");
 
                     b.Property<decimal>("DeliveryFee")
@@ -184,23 +187,6 @@ namespace Store.Infra.Migrations
                     b.ToTable("Products", (string)null);
                 });
 
-            modelBuilder.Entity("Store.Domain.Entities.Role", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("NVARCHAR")
-                        .HasColumnName("Name");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Roles", (string)null);
-                });
-
             modelBuilder.Entity("Store.Domain.Entities.User", b =>
                 {
                     b.Property<Guid>("Id")
@@ -222,21 +208,6 @@ namespace Store.Infra.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users", (string)null);
-                });
-
-            modelBuilder.Entity("UserRoles", b =>
-                {
-                    b.Property<Guid>("RoleId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("RoleId", "UserId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("UserRoles");
                 });
 
             modelBuilder.Entity("Store.Domain.Entities.Delivery", b =>
@@ -359,21 +330,6 @@ namespace Store.Infra.Migrations
                     b.Navigation("Email");
 
                     b.Navigation("Password");
-                });
-
-            modelBuilder.Entity("UserRoles", b =>
-                {
-                    b.HasOne("Store.Domain.Entities.Role", null)
-                        .WithMany()
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Store.Domain.Entities.User", null)
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Store.Domain.Entities.Customer", b =>

@@ -19,7 +19,7 @@ namespace Store.Api.Extensions
             services.AddScoped<OrderHandler>();
             services.AddScoped<ProductHandler>();
             services.AddScoped<DeliveryHandler>();
-            services.AddHostedService<OrderCancellationService>();
+
         }
 
         public static void AddIHandlerCommandExtensions(this IServiceCollection services)

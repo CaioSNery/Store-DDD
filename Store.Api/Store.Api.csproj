@@ -1,17 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>ff01eaf5-18f7-466b-b767-88b31e33e1ce</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.19"/>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2"/>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.10"/>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.10"/>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.19" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.10" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Store.Application\Store.Application.csproj"/>
-    <ProjectReference Include="..\Store.Infra\Store.Infra.csproj"/>
+    <ProjectReference Include="..\Store.Application\Store.Application.csproj" />
+    <ProjectReference Include="..\Store.Infra\Store.Infra.csproj" />
   </ItemGroup>
 </Project>

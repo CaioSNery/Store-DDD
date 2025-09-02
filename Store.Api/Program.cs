@@ -1,52 +1,61 @@
-using Microsoft.EntityFrameworkCore;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using Store.Api.Extensions;
-using Store.Api.Repository;
-using Store.Application.Handlers;
-using Store.Domain.Commands;
-using Store.Domain.Handlers;
-using Store.Domain.Handlers.Interfaces;
-using Store.Domain.Repositories;
-using Store.Domain.Repositories.Interfaces;
-using Store.Infra.Context;
-using Store.Infra.Repository;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+    {
+        Title = "Store API",
+        Version = "v1"
+    });
 
+    // Usa o nome completo (namespace + classe) como schemaId
+    c.CustomSchemaIds(type => type.FullName);
+});
 
 
 builder.Services.AddControllers();
 
-
-
-builder.Services.AddDbContextExtensions();
+builder.AddConfiguration();
+builder.AddDbContext();
+builder.AddJwtAuthentication();
+builder.AddMediator();
 
 builder.Services.AddRepositoriesExtensions();
-
 builder.Services.AddHandleExtensions();
+builder.Services.AddIHandlerCommandExtensions();
 
-
+if (!builder.Environment.IsDevelopment())
+{
+    builder.Services.AddHostedService<OrderCancellationService>();
+}
 
 
 
 var app = builder.Build();
 
-
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "DeliveryFast API v1");
-    c.RoutePrefix = string.Empty;
+    c.RoutePrefix = "swagger";
 });
 
 
 app.UseHttpsRedirection();
-
-app.UseAuthorization();
+app.UseStaticFiles();
 app.UseRouting();
+
+app.UseAuthentication();
+app.UseAuthorization();
+
 
 app.MapControllers();
 

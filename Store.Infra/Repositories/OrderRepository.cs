@@ -21,9 +21,16 @@ namespace Store.Api.Repository
 
         public async Task SaveAsync(Order order)
         {
-            await _context.AddAsync(order);
+            var exists = await _context.Orders.AnyAsync(o => o.Id == order.Id);
+
+            if (exists)
+                _context.Update(order);
+            else
+                await _context.AddAsync(order);
+
             await _context.SaveChangesAsync();
         }
+
 
         public async Task DeleteAsync(Order order)
         {
