@@ -1,6 +1,4 @@
-using System.Text;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
+
 using Store.Api.Extensions;
 
 
@@ -36,8 +34,6 @@ if (!builder.Environment.IsDevelopment())
 {
     builder.Services.AddHostedService<OrderCancellationService>();
 }
-
-
 
 var app = builder.Build();
 
