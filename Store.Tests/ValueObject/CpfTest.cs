@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Store.Domain.ValueObjects
+namespace Store.Tests.ValueObject
 {
-    public abstract class ValueObject
+    public class CpfTest
     {
-
+        
     }
 }

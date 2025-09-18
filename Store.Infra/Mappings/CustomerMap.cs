@@ -32,6 +32,14 @@ namespace Store.Infra.Mappings
             .HasForeignKey(c => c.CustomerId)
             .OnDelete(DeleteBehavior.Cascade);
 
+            builder.OwnsOne(c => c.Email, e =>
+            {
+                e.Property(p => p.Address) // supondo que Email tenha 'Address'
+                 .HasColumnName("Email")
+                 .HasColumnType("NVARCHAR(100)")
+                 .IsRequired();
+            });
+
         }
     }
 }

@@ -25,7 +25,7 @@ namespace Store.Application.Handlers
             if (command.Invalid)
                 return new GenericCommandResult(false, "Invalid Customer", command.Notifications);
 
-            var customer = new Customer(command.Name, command.Email);
+             var customer = Customer.Create(command.FirstName, command.LastName, command.Email, command.Address, command.Cpf);
 
             await _repository.SaveAsync(customer);
 
@@ -42,7 +42,7 @@ namespace Store.Application.Handlers
             if (customer == null)
                 return new GenericCommandResult(false, "Not Found", null);
 
-            customer.Update(command.Name, command.Email);
+            customer.Update(command.FirstName, command.LastName, command.Email, command.Address, command.Cpf);
             await _repository.UpdateAsync(customer);
             return new GenericCommandResult(true, "Customer update sucessfully", customer);
         }

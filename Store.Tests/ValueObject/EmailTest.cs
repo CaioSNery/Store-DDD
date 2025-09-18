@@ -44,5 +44,7 @@ namespace Store.Tests.ValueObject
         {
             Assert.Throws<ArgumentException>(() => Email.Create("invalidemail.com"));
         }
+
+        
     }
 }

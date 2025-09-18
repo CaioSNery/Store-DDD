@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Store.Domain",
+    "\\Store.Domain\\Entities",
+    "\\Store.Infra",
+    "\\Store.Infra\\Mappings"
   ],
-  "SelectedNode": "\\Store.sln",
+  "SelectedNode": "\\Store.Infra\\Mappings\\CustomerMap.cs",
   "PreviewInSolutionExplorer": false
 }
