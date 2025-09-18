@@ -39,7 +39,7 @@ namespace Store.Tests.Handlers
             command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
             command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
             command.Validate();
-            Assert.True(command.Valid);
+            Assert.True(command.Invalid);
         }
 
         [Fact]
@@ -52,8 +52,8 @@ namespace Store.Tests.Handlers
             command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
             command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
             command.Validate();
-            Assert.True(command.Valid);
-            
+            Assert.True(command.Invalid);
+
         }
 
         [Fact]
@@ -66,7 +66,7 @@ namespace Store.Tests.Handlers
             command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
             command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
             command.Validate();
-            Assert.True(command.Valid);
+            Assert.True(command.Invalid);
         }
 
        [Fact]
@@ -78,7 +78,7 @@ namespace Store.Tests.Handlers
             command.PromoCode = "123456789";
 
             command.Validate();
-            Assert.True(command.Valid);
+            Assert.True(command.Invalid);
         }
 
         [Fact]
@@ -91,7 +91,7 @@ namespace Store.Tests.Handlers
             command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
             command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
             command.Validate();
-            Assert.True(command.Valid);
+            Assert.True(command.Invalid);
 
 
         }
@@ -106,7 +106,7 @@ namespace Store.Tests.Handlers
             command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
             command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
             command.Validate();
-            Assert.True(command.Valid);
+            Assert.True(command.Invalid);
 
            
         }
