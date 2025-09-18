@@ -2,7 +2,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Store.Api.Extensions;
-using Store.Domain.UseCases.Authenticate;
+using Store.Application.UseCases.Authenticate;
 
 namespace Store.Api.Controllers
 {

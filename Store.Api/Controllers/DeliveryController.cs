@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Store.Application.Dtos;
 using Store.Application.Handlers;
-using Store.Domain.Commands;
+using Store.Application.Commands;
 using Store.Domain.Repositories;
 using Store.Domain.Repositories.Interfaces;
 

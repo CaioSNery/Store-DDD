@@ -4,13 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Store.Domain.Repositories;
 using Store.Tests.Repositories;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Store.Domain.Commands;
+
+using Store.Application.Commands;
+using Xunit;
 
 namespace Store.Tests.Handlers
 {
 
-    [TestClass]
+
     public class OrderHandlerTests
     {
         private readonly ICustomerRepository _customerrepositoty;
@@ -28,8 +29,7 @@ namespace Store.Tests.Handlers
             _productrepositoty = new FakeProductRepository();
         }
 
-        [TestMethod]
-        [TestCategory("Handlers")]
+       [Fact]
         public void DadoUmClienteInexistenteOPedidoNaoDeveSerGerado()
         {
             var command = new CreateOrderCommand();
@@ -40,11 +40,10 @@ namespace Store.Tests.Handlers
 
             command.Validate();
 
-            Assert.AreEqual(command.Valid, false);
+            Assert.False(command.Valid);
         }
 
-        [TestMethod]
-        [TestCategory("Handlers")]
+        [Fact]
         public void DadoUmCepInvalidoOPedidoDeveSerGeradoNormalmente()
         {
             var command = new CreateOrderCommand();
@@ -54,11 +53,10 @@ namespace Store.Tests.Handlers
             command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
             command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
             command.Validate();
-            Assert.AreEqual(command.Valid, true);
+            Assert.True(command.Valid);
         }
 
-        [TestMethod]
-        [TestCategory("Handlers")]
+        [Fact]
         public void DadoUmPromoCodeInexistenteOPedidoDeveSerGeradoNormalmente()
         {
             var command = new CreateOrderCommand();
@@ -68,11 +66,10 @@ namespace Store.Tests.Handlers
             command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
             command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
             command.Validate();
-            Assert.AreEqual(command.Valid, true);
+            Assert.True(command.Valid);
         }
 
-        [TestMethod]
-        [TestCategory("Handlers")]
+       [Fact]
         public void DadoUmPedidoSemItemOMesmoNaoDeveSerGerado()
         {
             var command = new CreateOrderCommand();
@@ -81,11 +78,10 @@ namespace Store.Tests.Handlers
             command.PromoCode = "123456789";
 
             command.Validate();
-            Assert.AreEqual(command.Valid, true);
+            Assert.True(command.Valid);
         }
 
-        [TestMethod]
-        [TestCategory("Handlers")]
+        [Fact]
         public void DadoUmComandoInvalidOPedidoNaoDeveSerGerado()
         {
             var command = new CreateOrderCommand();
@@ -95,24 +91,23 @@ namespace Store.Tests.Handlers
             command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
             command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
             command.Validate();
-            Assert.AreEqual(command.Valid, false);
+            Assert.False(command.Valid);
 
 
         }
 
-        [TestMethod]
-        [TestCategory("Handlers")]
-        public void DadoUmComandoValidoOPedidoDeveSerGerado()
-        {
-            var command = new CreateOrderCommand();
-            command.Customer = Guid.Empty;
-            command.ZipCode = "12356";
-            command.PromoCode = "123456789";
+       [Fact]        
+       public void DadoUmComandoValidoOPedidoDeveSerGerado()
+       {
+           var command = new CreateOrderCommand();
+           command.Customer = Guid.Empty;
+           command.ZipCode = "12356";
+           command.PromoCode = "123456789";
             command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
             command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
             command.Validate();
 
-            Assert.AreEqual(command.Valid, true);
+            Assert.True(command.Valid);
         }
 
     }

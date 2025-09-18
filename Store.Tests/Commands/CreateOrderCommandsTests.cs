@@ -2,17 +2,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Store.Domain.Commands;
+using Store.Application.Commands;
+using Xunit;
 
 namespace Store.Tests.Commands
 {
 
-    [TestClass]
+    
     public class CreateOrderCommandsTests
     {
 
-        [TestMethod]
-        [TestCategory("Handlers")]
+        [Fact]
+        [Trait("Handlers", "CreateOrder")]
         public void DadoUmComandInvalidoOPedidoNaoDeveSerGerado()
         {
             var command = new CreateOrderCommand();
@@ -23,7 +24,7 @@ namespace Store.Tests.Commands
             command.Items.Add(new CreateOrderItemCommand(Guid.NewGuid(), 1));
             command.Validate();
 
-            Assert.AreEqual(command.IsValid, false);
+            Assert.False(command.IsValid);
 
         }
     }

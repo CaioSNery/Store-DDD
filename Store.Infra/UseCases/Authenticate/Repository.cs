@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Store.Domain.Entities;
-using Store.Domain.UseCases.Authenticate.Contracts;
+using Store.Application.UseCases.Authenticate.Contracts;
 using Store.Infra.Context;
 
 namespace Store.Infra.UseCases.Authenticate

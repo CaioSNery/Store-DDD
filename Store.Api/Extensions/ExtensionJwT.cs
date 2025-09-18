@@ -7,8 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Store.Application;
 using Store.Domain;
-using static Store.Domain.UseCases.Authenticate.Response;
+using static Store.Application.UseCases.Authenticate.Response;
 
 namespace Store.Api.Extensions
 {

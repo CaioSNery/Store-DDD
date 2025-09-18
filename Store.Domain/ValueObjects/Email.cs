@@ -5,6 +5,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Store.Domain.Shared;
 
+
 namespace Store.Domain.ValueObjects
 {
     public partial class Email : ValueObject
@@ -24,6 +25,8 @@ namespace Store.Domain.ValueObjects
             if (address.Length < 5)
                 throw new ArgumentException("Email address is too short.");
         }
+
+        public static Email Create(string address) => new Email(address);
 
         protected Email() { }
         public string Address { get; private set; } = string.Empty;

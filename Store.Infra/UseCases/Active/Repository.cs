@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Store.Domain.Entities;
-using Store.Domain.UseCases.Active.Contracts;
+using Store.Application.UseCases.Active.Contracts;
 using Store.Infra.Context;
 
 namespace Store.Infra.UseCases.Active

@@ -1,7 +1,7 @@
 
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Store.Domain.UseCases.Create;
+using Store.Application.UseCases.Create;
 
 namespace Store.Api.Controllers
 {

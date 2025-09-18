@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Store.Domain.ValueObjects;
 
 namespace Store.Domain.Entities
 {
@@ -10,12 +11,12 @@ namespace Store.Domain.Entities
         public Customer(string name, string email)
         {
             Name = name;
-            Email = email;
+            Email = Email.Create(email);
             Orders = new List<Order>();
         }
 
         public string Name { get; private set; }
-        public string Email { get; private set; }
+        public Email Email { get; private set; }
 
         public List<Order> Orders { get; private set; }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Store.Domain.Commands;
+using Store.Application.Commands;
 using Store.Domain.Entities;
 using Store.Domain.Repositories;
 using Store.Infra.Context;

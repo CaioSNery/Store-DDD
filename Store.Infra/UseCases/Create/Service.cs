@@ -6,7 +6,7 @@ using SendGrid;
 using SendGrid.Helpers.Mail;
 using Store.Domain;
 using Store.Domain.Entities;
-using Store.Domain.UseCases.Create.Contracts;
+using Store.Application.UseCases.Create.Contracts;
 
 namespace Store.Infra.UseCases.Create
 {

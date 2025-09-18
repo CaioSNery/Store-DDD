@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Store.Application.Handlers;
-using Store.Domain.Commands;
-using Store.Domain.Handlers;
-using Store.Domain.Handlers.Interfaces;
+using Store.Application.Commands;
+using Store.Application.Handlers.Interfaces;
 
 namespace Store.Api.Extensions
 {

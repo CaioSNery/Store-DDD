@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-using Store.Domain.Commands;
+using Store.Application.Commands;
 using Store.Domain.Entities;
-using Store.Domain.Handlers;
+using Store.Application.Handlers;
 using Store.Domain.Repositories;
 
 namespace Store.Api.Controllers

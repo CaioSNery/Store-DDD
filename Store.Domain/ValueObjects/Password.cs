@@ -13,6 +13,8 @@ namespace Store.Domain.ValueObjects
 
         protected Password() { }
 
+        public static Password Create(string text = null) => new(text);
+
         public Password(string text = null)
         {
             if (string.IsNullOrEmpty(text) || string.IsNullOrWhiteSpace(text))

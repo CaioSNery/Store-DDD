@@ -1,10 +1,11 @@
 using Store.Domain.Entities;
 using Store.Domain.Queries;
+using Xunit;
 
 namespace Store.Tests.Queries
 
 {
-    [TestClass]
+    
     public class ProductQueriesTests
     {
 
@@ -20,22 +21,22 @@ namespace Store.Tests.Queries
 
         }
 
-        [TestMethod]
-        [TestCategory("Queries")]
+        
+       [Fact]
         public void DadoAConsultaDeProdutosAtivosDeveRetornar3()
         {
             var result = _products.AsQueryable().Where(ProductQueries.GetActiveProducts());
-            Assert.AreEqual(result.Count(), 3);
+            Assert.Equal(3, result.Count());
 
         }
 
-        [TestMethod]
-        [TestCategory("Queries")]
+        [Fact]
+        [Trait("Queries", "Inactive Products")]
         public void DadoAConsultaDeProdutosInativosDeveRetornar2()
         {
 
             var result = _products.AsQueryable().Where(ProductQueries.GetInactiveProducts());
-            Assert.AreEqual(result.Count(), 2);
+            Assert.Equal(2, result.Count());
         }
 
 
